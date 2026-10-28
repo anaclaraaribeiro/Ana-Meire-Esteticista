@@ -77,8 +77,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .menu-open .burger i:nth-child(2){top:22px;left:10px;transform:rotate(-45deg)}
 
 /* mobile menu */
-.mmenu{position:fixed;inset:0;z-index:49;background:var(--blush);display:flex;flex-direction:column;justify-content:center;padding:100px 30px 40px;clip-path:inset(0 0 100% 0);transition:clip-path .9s var(--ease-io);visibility:hidden}
-.menu-open .mmenu{clip-path:inset(0);visibility:visible}
+.mmenu{position:fixed;inset:0;z-index:49;background:var(--blush);display:flex;flex-direction:column;justify-content:center;padding:100px 30px 40px;clip-path:inset(0 0 100% 0);transition:clip-path .9s var(--ease-io),visibility 0s linear .9s;visibility:hidden}
+.menu-open .mmenu{clip-path:inset(0);visibility:visible;transition:clip-path .9s var(--ease-io),visibility 0s}
 .mmenu::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.18;mix-blend-mode:multiply;pointer-events:none}
 .mmenu a.ml{font-family:var(--f-head);font-weight:300;font-size:46px;line-height:1.25;color:var(--vinho);opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);position:relative}
 .mmenu a.ml em{font-style:italic}
@@ -403,14 +403,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .manifesto .p{padding-top:20px}
   .manifesto .p p{font-size:16.5px}
   .wide{margin-top:56px;height:420px;border-radius:22px}
+  .wide .cap{left:22px;bottom:22px;font-size:10px}
+  .wide .cap2{left:22px;right:auto;bottom:42px;font-size:20px}
   .band span{font-size:58px}
 
-  .story .pin,.chapters{grid-column:1/-1}
+  .story .grid{row-gap:0}
+  /* no celular a foto da Ana vem depois dos capítulos, junto do "Prazer, Ana." */
+  .story .pin{display:contents}
+  .story .pin>*,.chapters{grid-column:1/-1}
+  .story .pin-in{order:2}
   .story .pin-in{position:relative;top:0}
   .story .pin-in::before{left:-14%;top:-50px;width:110%;height:520px}
-  .story .portrait{width:78%;margin-top:30px}
+  .story .portrait{width:78%;margin-top:34px}
   .story .portrait-cap{width:78%}
-  .chapters{padding-top:70px}
+  .chapters{padding-top:100px}
   .ch,.ch:nth-child(even){min-height:0;padding:0 0 50px 0}
   .ch .dot,.ch:nth-child(even) .dot{left:-22px;right:auto;top:10px}
   .ch .ct,.ch:nth-child(even) .ct{margin:0;text-align:left;max-width:none}
@@ -430,9 +436,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .feat .ttl .script{right:0;bottom:-.7em;font-size:44px}
 
   .sec-head{flex-direction:column;align-items:flex-start;gap:22px;margin-bottom:46px}
-  .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 calc(-1*var(--g));padding:0 var(--g) 8px;scrollbar-width:none}
+  .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--g);gap:16px;margin:0 calc(-1*var(--g));padding:0 var(--g) 8px;scrollbar-width:none}
   .cards::-webkit-scrollbar{display:none}
-  .card{flex:0 0 76%;scroll-snap-align:start}
+  .card{flex:0 0 70%;scroll-snap-align:start}
+  .card .im{aspect-ratio:1/1.08}
   .card:hover{transform:none}
 
   .steps{grid-template-columns:1fr;gap:0;margin-top:10px}
@@ -627,7 +634,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         </div>
       </div>
       <div class="chapters" data-tp-bounds="tl">
-        <i data-tp data-only="m" data-mx="r" style="position:absolute;top:0;left:0" aria-hidden="true"></i>
+        <i data-tp data-only="m" data-mx="r" style="position:absolute;top:24px;left:0" aria-hidden="true"></i>
         <article class="ch"><span class="dot" data-tp="row" data-group="tl"></span><div class="ct">
           <span class="num">i.</span><h3>Acolher</h3>
           <p>Você é recebida com calma, num espaço preparado com carinho para o seu momento.</p></div></article>
