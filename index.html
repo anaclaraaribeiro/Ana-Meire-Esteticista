@@ -1043,8 +1043,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   let ioOk = false;
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { ioOk = true; e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .18, rootMargin: '0px 0px -6% 0px' });
   $$('.rv,.rvo,.clip,.ben,.h2,.ch,.foot .wm').forEach(el => io.observe(el));
-  // alguns visualizadores (ex.: iframes) não avisam a rolagem: se nada for revelado, mostra tudo e desenha o fio inteiro
-  setTimeout(() => { if (ioOk) return; showAll = true; enabled = true; $$('.rv,.rvo,.clip,.ben,.h2,.ch,.foot .wm').forEach(el => el.classList.add('in')); }, 3000);
+  // alguns visualizadores (ex.: iframes do tamanho da página inteira) não rolam por dentro: só aí mostra tudo e desenha o fio inteiro.
+  // não basta "nada foi revelado": no celular a capa não tem nada observado na tela e o fio ficaria pronto sem acompanhar a rolagem
+  setTimeout(() => { if (ioOk || document.documentElement.scrollHeight > innerHeight * 1.5) return; showAll = true; enabled = true; $$('.rv,.rvo,.clip,.ben,.h2,.ch,.foot .wm').forEach(el => el.classList.add('in')); }, 3000);
 
   /* ---------- menu ---------- */
   const burger = $('#burger');
