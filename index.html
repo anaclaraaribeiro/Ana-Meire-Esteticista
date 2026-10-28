@@ -118,7 +118,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wm-hero .l2{display:none}
 
 .flower{position:absolute;bottom:-.04em;left:48.4%;height:min(3.6em,calc(100svh - 250px));aspect-ratio:400/1000;transform:translateX(-50%);pointer-events:none}
-.flower svg{width:100%;height:100%;overflow:visible;display:block;transform:translate(calc(var(--px,0)*10px),calc(var(--py,0)*6px));transition:transform 1.2s var(--ease)}
+.flower svg{width:100%;height:100%;overflow:visible;display:block;transform:translate(calc(var(--px,0)*10px),calc(var(--py,0)*6px)) rotate(calc(var(--rot,0)*1deg));transform-origin:50% 100%;transition:transform 1.2s var(--ease)}
 .flower .fl-in{width:100%;height:100%;opacity:0;filter:blur(14px);transform:translateY(60px) scale(.94);transform-origin:50% 80%;transition:opacity 1.6s var(--ease),filter 1.8s var(--ease),transform 1.9s var(--ease)}
 .ready .flower .fl-in{opacity:1;filter:blur(0);transform:none;transition-delay:.25s}
 .flower .orb{transform:translate(calc(var(--px,0)*-22px),calc(var(--py,0)*-14px));transition:transform 1.4s var(--ease)}
@@ -285,8 +285,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ---------- testimonials ---------- */
 .tst{text-align:center}
 .tst{background:radial-gradient(ellipse 50% 58% at 50% 50%,rgba(232,180,184,.6),rgba(246,230,228,0) 72%),var(--blush)}
-.tst .q{position:relative;min-height:270px;max-width:980px;margin:40px auto 0}
-.tst blockquote{position:absolute;inset:0;opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease);pointer-events:none}
+.tst .q{position:relative;max-width:980px;margin:40px auto 0}
+.tst blockquote{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease);pointer-events:none}
 .tst blockquote.on{opacity:1;transform:none;pointer-events:auto}
 .tst blockquote p{font-family:var(--f-head);font-style:italic;font-weight:300;font-size:clamp(28px,3.4vw,48px);line-height:1.22;color:var(--vinho)}
 .tst cite{display:block;margin-top:28px;font-style:normal;font-family:var(--f-mark);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
@@ -382,7 +382,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero{min-height:0;padding-top:120px;padding-bottom:40px;display:flex;flex-direction:column}
   .hero .glow{top:300px;width:130vw}
   .hero-l{position:relative;left:auto;top:auto;padding:0 var(--g);max-width:none;text-align:center;order:2;margin-top:34px}
-  .hero-l .script{font-size:42px;margin-bottom:0}
+  .hero-l .script{font-size:38px;margin-bottom:0}
   .hero-l .label,.hero-l p{display:none}
   .wm-hero{position:relative;left:auto;right:auto;bottom:auto;margin:0 var(--g);order:1;padding-top:0}
   .wm-hero .wm{margin-top:2.35em}
@@ -446,21 +446,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .tile{width:52vw}
   .ig-foot{justify-content:center}
 
-  .tst .q{min-height:330px}
+  .tst .ctrl{margin-top:14px}
   .tst blockquote p{font-size:28px}
   .faq .fh,.faq .list{grid-column:1/-1}
   .faq .list{margin-top:30px}
   .qa button{padding:24px 0}
   .qa .ans p{padding-right:0}
 
-  .final-cta{padding:150px 0 170px}
-  .final-cta .script{font-size:50px}
-  .final-cta .h2{font-size:32px;max-width:260px}
-  .final-cta .btn{height:50px;padding:0 24px;font-size:13.5px}
+  .final-cta{padding:140px 0 190px}
+  .final-cta .h2{margin-top:10px}
+  .final-cta .btn{margin-top:24px}
+  .final-cta .script{font-size:40px}
+  .final-cta .h2{font-size:28px;max-width:240px}
+  .final-cta .btn{height:46px;padding:0 22px;font-size:13px}
   .final-cta small{max-width:210px;margin-left:auto;margin-right:auto;line-height:1.5}
 
   .foot{padding:220px 0 120px}
-  .foot .flower{left:74%;height:2.6em}
+  .foot .flower{left:32.4%;height:2.6em}
+  .foot .wm .l2 .line:first-child{justify-content:flex-end}
   .foot .wm .l1{display:none}
   .foot .wm .l2{display:flex;flex-direction:column}
   .fcols{grid-template-columns:1fr 1fr;gap:36px 20px;margin-top:50px}
@@ -542,7 +545,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <a class="ml" href="#como-funciona">Como funciona</a>
   <a class="ml" href="#duvidas">Dúvidas</a>
   <a href="#agendar" class="btn btn-p">Agende seu horário</a>
-  <div class="mfoot"><span>@anameiraesteticista_</span><span>Atendimentos abertos</span></div>
+  <div class="mfoot"><span>Atendimentos abertos</span></div>
 </div>
 
 <main>
@@ -594,13 +597,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
     </div>
     <figure class="wide graded clip">
+      <i data-tp data-only="m" style="position:absolute;top:-40px;left:0" aria-hidden="true"></i>
+      <i data-tp data-only="m" data-mx="r" style="position:absolute;top:24px;left:0" aria-hidden="true"></i>
       <!-- substituir por foto da Ana em atendimento (Instagram) -->
       <img src="assets/maos-atendimento.jpg" alt="Mãos da esteticista realizando um tratamento facial" loading="lazy">
       <figcaption class="cap">O seu momento de cuidado</figcaption>
       <span class="cap2">sem pressa, com carinho</span>
     </figure>
   </div>
-  <i data-tp data-x=".025" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" data-mx="r" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
 </section>
 
 <div class="band" aria-hidden="true">
@@ -611,6 +616,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="sec story grain" id="sobre">
   <i data-tp data-only="d" data-x=".025" style="position:absolute;top:30px;left:0" aria-hidden="true"></i>
   <i data-tp data-only="d" data-x="tl" style="position:absolute;top:110px;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="m" data-mx="r" style="position:absolute;top:30px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="grid">
       <div class="pin">
@@ -622,6 +628,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         </div>
       </div>
       <div class="chapters" data-tp-bounds="tl">
+        <i data-tp data-only="m" data-mx="r" style="position:absolute;top:0;left:0" aria-hidden="true"></i>
         <article class="ch"><span class="dot" data-tp="row" data-group="tl"></span><div class="ct">
           <span class="num">i.</span><h3>Acolher</h3>
           <p>Você é recebida com calma, num espaço preparado com carinho para o seu momento.</p></div></article>
@@ -655,10 +662,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <div class="ben"><span class="n">02</span><h4>Pele mais macia</h4><p>Toque aveludado e textura mais uniforme.</p></div>
       </div>
       <div class="feat-c">
+        <i data-tp data-only="m" style="position:absolute;top:6px;left:0" aria-hidden="true"></i>
+        <i data-tp data-only="m" data-mx="arch" style="position:absolute;top:80px;left:0" aria-hidden="true"></i>
         <i data-tp data-only="d" data-x=".975" style="position:absolute;top:-46px;left:0" aria-hidden="true"></i>
         <i data-tp data-only="d" data-x="arch" style="position:absolute;top:-28px;left:0" aria-hidden="true"></i>
-        <i data-tp data-only="d" data-x="arch" style="position:absolute;bottom:-14px;left:0" aria-hidden="true"></i>
-        <i data-tp data-only="d" data-x=".025" style="position:absolute;bottom:-62px;left:0" aria-hidden="true"></i>
+        <i data-tp data-x="arch" data-mx="arch" style="position:absolute;bottom:-14px;left:0" aria-hidden="true"></i>
+        <i data-tp data-x=".025" style="position:absolute;bottom:-62px;left:0" aria-hidden="true"></i>
         <span class="brace" aria-hidden="true">{</span>
         <figure class="arch-big graded clip arch">
           <!-- substituir pela foto do tratamento com pincel e máscara (post da Ana) -->
@@ -675,11 +684,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <div class="cta rv"><a href="#agendar" class="btn btn-p mag">Quero agendar a minha <svg class="ico" viewBox="0 0 24 24"><path d="M4 12h15M14 7l5 5-5 5"/></svg></a>
     </div>
   </div>
+  <i data-tp data-only="m" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
 </section>
 
 <!-- ================= TRATAMENTOS ================= -->
 <section class="sec svc grain" id="tratamentos">
-  <i data-tp data-x=".025" style="position:absolute;top:50px;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" data-mx="r" style="position:absolute;top:50px;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="m" data-mx="r" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="sec-head">
       <div><span class="label">Tratamentos</span><h2 class="h2"><span class="ln"><span>Escolha o seu <em>cuidado</em></span></span></h2></div>
@@ -704,24 +715,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= COMO FUNCIONA ================= -->
 <section class="sec how" id="como-funciona">
+  <i data-tp data-only="m" style="position:absolute;top:40px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="sec-head">
       <div><span class="label">Como funciona</span><h2 class="h2"><span class="ln"><span>Do primeiro oi</span></span><span class="ln"><span>ao seu <em>momento</em></span></span></h2></div>
       <p class="rv">Para quem vem pela primeira vez, é simples. Eu te acompanho em cada etapa.</p>
     </div>
     <div class="steps" data-tp-bounds="steps">
+      <i data-tp data-only="m" style="position:absolute;top:-24px;left:0" aria-hidden="true"></i>
       <div class="step rvo"><span class="ic" data-tp="row" data-group="steps"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8.5 10.5h7"/></svg></span><span class="num">01</span><h3>Conversa e avaliação</h3><p>Eu escuto você e avalio a sua pele com calma.</p></div>
       <div class="step rvo"><span class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M7 3.5h10v17H7z"/><path d="M10 8.5h4M10 12h4M10 15.5h2.5"/></svg></span><span class="num">02</span><h3>Protocolo pensado para você</h3><p>Um plano de cuidado feito a partir do que a sua pele precisa.</p></div>
       <div class="step rvo"><span class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M12 19.5c-4 0-7-3-7-7 3 0 5 1.5 7 4 2-2.5 4-4 7-4 0 4-3 7-7 7z"/><path d="M12 16.5c-1.6-2.2-1.6-6.4 0-9.5 1.6 3.1 1.6 7.3 0 9.5z"/></svg></span><span class="num">03</span><h3>Seu momento de cuidado</h3><p>Um atendimento sem pressa, num ambiente tranquilo.</p></div>
       <div class="step rvo"><span class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16v14H4z"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/><path d="M9.5 15l2 2 3.5-3.5"/></svg></span><span class="num">04</span><h3>Acompanhamento</h3><p>Eu acompanho a sua evolução e ajusto o cuidado com você.</p></div>
     </div>
   </div>
+  <i data-tp data-only="m" data-mx="ic" style="position:absolute;bottom:60px;left:0" aria-hidden="true"></i>
 </section>
 
 <!-- ================= INSTAGRAM ================= -->
 <section class="sec ig" id="instagram">
-  <i data-tp data-x=".975" style="position:absolute;top:12%;left:0" aria-hidden="true"></i>
-  <i data-tp data-only="d" data-x=".975" style="position:absolute;bottom:50px;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".975" data-mx="r" style="position:absolute;top:12%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".975" data-mx="r" style="position:absolute;bottom:50px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="sec-head">
       <div><span class="label">Do Instagram</span><a class="handle" href="https://instagram.com/anameiraesteticista_" target="_blank" rel="noopener">@anameiraesteticista_</a></div>
@@ -749,6 +763,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <!-- ================= DEPOIMENTOS ================= -->
 <section class="sec tst grain" id="depoimentos">
   <i data-tp data-x=".025" style="position:absolute;top:50px;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="m" style="position:absolute;bottom:60px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <span class="label">Depoimentos</span>
     <div class="q" id="quotes">
@@ -771,8 +786,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= FAQ ================= -->
 <section class="sec faq" id="duvidas">
-  <i data-tp data-x=".025" style="position:absolute;top:24%;left:0" aria-hidden="true"></i>
-  <i data-tp data-x=".025" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="m" data-mx="r" style="position:absolute;top:40px;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" data-mx="r" style="position:absolute;top:24%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" data-mx="r" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="grid">
       <div class="fh"><span class="label">Dúvidas frequentes</span><h2 class="h2"><span class="ln"><span>Antes de</span></span><span class="ln"><span>você <em>chegar</em></span></span></h2><p class="rv">Ficou alguma pergunta? Me chama, eu respondo com todo o prazer.</p></div>
@@ -813,7 +829,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div><h5>Navegação</h5><a href="#tratamentos">Tratamentos</a><a href="#sobre">Sobre</a><a href="#como-funciona">Como funciona</a><a href="#duvidas">Dúvidas</a></div>
       <div><h5>Horário</h5><span>Com hora marcada</span><span>Agende pelo WhatsApp</span></div>
     </div>
-    <div class="legal"><span>© 2026 Ana Meira Esteticista. Todos os direitos reservados.</span><span>@anameiraesteticista_</span></div>
+    <div class="legal"><span>© 2026 Ana Meira Esteticista. Todos os direitos reservados.</span></div>
   </div>
 </footer>
 
@@ -928,10 +944,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     let i = 0;
     while (i < marks.length) {
       const el = marks[i];
-      if (el.dataset.tp === 'row' && !(m && el.dataset.group === 'steps')) {
+      if (el.dataset.tp === 'row') {
         const g = el.dataset.group;
         const rows = []; while (i < marks.length && marks[i].dataset.tp === 'row' && marks[i].dataset.group === g) rows.push(marks[i++]);
-        if (m) { rows.forEach(r => curveTo(lineX, pageRect(r).cy)); continue; }
+        // no celular as etapas ficam em coluna: o fio desce pelo centro de cada ícone
+        if (m) { (g === 'steps' ? stepIcons : rows).forEach(r => { const c = pageRect(r); curveTo(g === 'steps' ? c.cx : lineX, c.cy); }); continue; }
         const b = pageRect($(`[data-tp-bounds="${g}"]`));
         const xL = b.x - (g === 'steps' ? 30 : 10), xR = b.x + b.w + (g === 'steps' ? 30 : 10), R = 44;
         let dir = cur.x < (xL + xR) / 2 ? 1 : -1;
@@ -946,18 +963,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         });
         continue;
       }
-      if (el.dataset.tp === 'row' && m) { i++; continue; }
       if (el.dataset.only && el.dataset.only !== (m ? 'm' : 'd')) { i++; continue; }
       const p = pageRect(el);
       const dx = el.dataset.x === 'tl' ? pageRect($('[data-tp-bounds="tl"]')).x - 10 : el.dataset.x === 'arch' ? pageRect($('.arch-big')).cx : W * parseFloat(el.dataset.x);
-      curveTo(m ? (el.dataset.mx === 'r' ? W - lineX : el.dataset.mx === 'c' ? W / 2 : lineX) : dx, p.y);
+      const mx = el.dataset.mx, mX = mx === 'r' ? W - lineX : mx === 'c' ? W / 2 : mx === 'arch' ? pageRect($('.arch-big')).cx : mx === 'ic' ? pageRect(stepIcons[0]).cx : lineX;
+      curveTo(m ? mX : dx, p.y);
       i++;
     }
 
     // coração final em volta do CTA
     const box = pageRect($('#ctaBox'));
-    const hw = m ? Math.min(W - 16, 420) : Math.min(700, W * .52), hh = m ? hw * 1.3 : hw * .9;
-    const cx = W / 2, T = box.cy - hh * (m ? .41 : .47), C = T + hh * .17, B = T + hh;
+    const hw = m ? Math.min(W - 12, 420) : Math.min(700, W * .52), hh = m ? hw * 1.06 : hw * .9;
+    const cx = W / 2, T = box.cy - hh * (m ? .42 : .47), C = T + hh * .17, B = T + hh;
     curveTo(cx, C);
     const P = (a, b) => `${(cx + a * hw).toFixed(1)},${(T + b * hh).toFixed(1)}`;
     const hd = `M${cx.toFixed(1)},${C.toFixed(1)} C${P(-.02, .03)} ${P(-.15, 0)} ${P(-.27, 0)} C${P(-.43, 0)} ${P(-.5, .1)} ${P(-.5, .27)} C${P(-.5, .52)} ${P(-.2, .74)} ${P(0, 1)} C${P(.2, .74)} ${P(.5, .52)} ${P(.5, .27)} C${P(.5, .1)} ${P(.43, 0)} ${P(.27, 0)} C${P(.15, 0)} ${P(.02, .03)} ${cx.toFixed(1)},${C.toFixed(1)}`;
@@ -1011,6 +1028,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     if (++frame % 20 === 0) $$(".rv:not(.in),.rvo:not(.in),.clip:not(.in),.ben:not(.in),.h2:not(.in),.ch:not(.in)").forEach(el => { if (el.getBoundingClientRect().top < innerHeight * .94) el.classList.add("in"); });
     paint();
     if (fine && !reduce) { px += (tpx - px) * .06; py += (tpy - py) * .06; hero.style.setProperty('--px', px.toFixed(3)); hero.style.setProperty('--py', py.toFixed(3)); }
+    // sem mouse (celular): a flor balança sozinha, bem devagar
+    else if (!reduce && frame % 3 === 0) { const t = performance.now() / 1000; hero.style.setProperty('--px', (Math.sin(t * .55) * .7).toFixed(3)); hero.style.setProperty('--py', (Math.sin(t * .41 + 1) * .6).toFixed(3)); hero.style.setProperty('--rot', (Math.sin(t * .48 + .6) * 1.8).toFixed(3)); }
     requestAnimationFrame(tick);
   }
   addEventListener('scroll', () => {
@@ -1047,7 +1066,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   let tx = null; $('#quotes').addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
   $('#quotes').addEventListener('touchend', e => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null; if (Math.abs(dx) > 40) { showQ(qi + (dx < 0 ? 1 : -1), dx > 0); playQ(); } }, { passive: true });
   playQ();
-  const fitQ = () => { const box = $('#quotes'); box.style.minHeight = Math.max(...qs.map(q => q.scrollHeight)) + 'px'; };
+  // altura do maior depoimento (medida sem o inset, senão mede a própria caixa)
+  const fitQ = () => { const box = $('#quotes'); box.style.minHeight = Math.max(...qs.map(q => { q.style.bottom = 'auto'; const h = q.offsetHeight; q.style.bottom = ''; return h; })) + 'px'; };
   let qW = innerWidth; fitQ(); addEventListener('resize', () => { if (innerWidth !== qW) { qW = innerWidth; fitQ(); } }); (document.fonts ? document.fonts.ready : Promise.resolve()).then(fitQ);
 
   /* ---------- instagram: carrossel contínuo (cópia da faixa para o loop) ---------- */
