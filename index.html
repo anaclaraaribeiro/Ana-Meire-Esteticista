@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ana Meira Esteticista</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="description" content="Estética facial com calma, técnica e carinho. Limpeza de pele, massagens, spa dos pés e depilação feminina em Guarapuava, com hora marcada.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +34,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .h2 em,.h3 em{font-style:italic;font-weight:300}
 .h3{font-family:var(--f-head);font-weight:400;font-size:clamp(26px,2.4vw,34px);line-height:1.12;color:var(--vinho)}
 .grain{position:relative}
-.grain::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.16;mix-blend-mode:multiply;pointer-events:none;z-index:0}
+.grain::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.09;pointer-events:none;z-index:0}
 
 /* ---------- buttons ---------- */
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;height:54px;padding:0 30px;border-radius:999px;font-family:var(--f-body);font-weight:400;font-size:14.5px;letter-spacing:.06em;overflow:hidden;isolation:isolate;transition:transform .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease);will-change:transform;white-space:nowrap}
@@ -89,9 +91,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .menu-open .mmenu svg.mthread path{stroke-dashoffset:0}
 
 /* ---------- the thread ---------- */
-#thread{position:absolute;left:0;top:0;pointer-events:none;z-index:1;overflow:visible}
+#thread{position:absolute;left:0;top:0;pointer-events:none;z-index:1;overflow:visible;contain:layout style}
 #thread path{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
-#thread .ghost{stroke:var(--gold);opacity:.09;stroke-dasharray:2 7}
+#thread .ghost{display:none}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:var(--petala)}
@@ -129,7 +131,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .front-band .flower .orb,.front-band .flower .head-only{display:none}
 .wm .text{position:relative;z-index:1}
 
-.hheart{position:absolute;right:.02em;top:-.66em;width:.86em;z-index:4;overflow:visible}
+.hheart{position:absolute;left:.02em;top:-.76em;width:.86em;z-index:4;overflow:visible;transform:scaleX(-1)}
 .hheart path{fill:none;stroke:var(--gold);stroke-width:1.3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s var(--ease-io) 1.5s}
 .ready .hheart path{stroke-dashoffset:0}
 .hero .scroll-cue{position:absolute;left:var(--g);bottom:calc(5vh + 1.1em);z-index:3}
@@ -331,7 +333,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .fcols .soc a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(246,230,228,.3);color:var(--blush);transition:background .5s var(--ease),border-color .5s var(--ease)}
 .fcols .soc a:hover{background:rgba(246,230,228,.12);border-color:var(--blush)}
 .soc svg{width:20px;height:20px}
-.foot::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.22;mix-blend-mode:soft-light;pointer-events:none}
+.foot::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.08;pointer-events:none}
 .foot .wm{color:var(--blush);font-size:150px}
 .foot .wm .lt{transform:translateY(105%)}
 .foot .wm.in .lt{transform:none}
@@ -389,7 +391,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .wm-hero .l2 .line{justify-content:center}
   .flower{left:50%;height:3.65em}
   .front-band{height:48%}
-  .hheart{top:auto;bottom:.84em;right:-.04em;width:.62em}
+  .hheart{top:auto;bottom:.84em;left:auto;right:-.04em;width:.62em;transform:none}
   .hero-r{position:relative;right:auto;top:auto;width:auto;padding:0 var(--g);order:3;margin-top:22px;text-align:left}
   .hero-r h1{font-size:38px}
   .hero-r .ctas{flex-direction:column}
@@ -548,14 +550,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <svg class="hheart" viewBox="0 0 160 120" aria-hidden="true"><path pathLength="1" d="M2,90 C40,96 70,92 86,78 C70,64 50,48 54,32 C58,16 78,14 86,30 C94,14 114,16 118,32 C122,48 102,64 86,78 C102,90 128,98 158,104"/><circle id="heartEnd" cx="158" cy="104" r="0.1" fill="none"/></svg>
     </div>
   </div>
-  <i data-tp data-only="d" data-x=".955" style="position:absolute;bottom:2vh;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="d" data-x=".025" style="position:absolute;bottom:2vh;left:0" aria-hidden="true"></i>
   <i data-tp data-only="m" data-mx="r" style="position:absolute;bottom:0;left:0" aria-hidden="true"></i>
 </section>
 
 <!-- ================= MANIFESTO ================= -->
 <section class="sec manifesto" id="manifesto">
   <i data-tp data-only="m" style="position:absolute;top:60px;left:0" aria-hidden="true"></i>
-  <i data-tp data-x=".035" style="position:absolute;top:28%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" style="position:absolute;top:28%;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="grid">
       <div class="t rv"><span class="label">Manifesto</span><h2 class="script">{ Beleza com propósito }</h2></div>
@@ -571,7 +573,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <span class="cap2">sem pressa, com carinho</span>
     </figure>
   </div>
-  <i data-tp data-x=".5" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
 </section>
 
 <div class="band" aria-hidden="true">
@@ -580,6 +582,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= SOBRE ================= -->
 <section class="sec story grain" id="sobre">
+  <i data-tp data-only="d" data-x=".025" style="position:absolute;top:30px;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="d" data-x="tl" style="position:absolute;top:110px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="grid">
       <div class="pin">
@@ -614,7 +618,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= DESTAQUE ================= -->
 <section class="sec feat" id="destaque">
-  <i data-tp data-x=".965" style="position:absolute;top:30%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".975" style="position:absolute;top:40px;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="d" data-x=".975" style="position:absolute;bottom:60px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <span class="label rv">Tratamento em destaque</span><br>
     <div class="ttl rv"><h2 class="h2">Revitalização de Pele</h2><span class="script">by Ana Meira</span></div>
@@ -644,7 +649,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= TRATAMENTOS ================= -->
 <section class="sec svc grain" id="tratamentos">
-  <i data-tp data-x=".035" style="position:absolute;top:22%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" style="position:absolute;top:50px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="sec-head">
       <div><span class="label">Tratamentos</span><h2 class="h2"><span class="ln"><span>Escolha o seu <em>cuidado</em></span></span></h2></div>
@@ -685,7 +690,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= INSTAGRAM ================= -->
 <section class="sec ig" id="instagram">
-  <i data-tp data-x=".965" style="position:absolute;top:12%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".975" style="position:absolute;top:12%;left:0" aria-hidden="true"></i>
+  <i data-tp data-only="d" data-x=".975" style="position:absolute;bottom:50px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="sec-head">
       <div><span class="label">Do Instagram</span><a class="handle" href="https://instagram.com/anameiraesteticista_" target="_blank" rel="noopener">@anameiraesteticista_</a></div>
@@ -712,7 +718,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= DEPOIMENTOS ================= -->
 <section class="sec tst grain" id="depoimentos">
-  <i data-tp data-x=".04" style="position:absolute;top:30%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" style="position:absolute;top:50px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <span class="label">Depoimentos</span>
     <div class="q" id="quotes">
@@ -735,7 +741,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <!-- ================= FAQ ================= -->
 <section class="sec faq" id="duvidas">
-  <i data-tp data-x=".035" style="position:absolute;top:24%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" style="position:absolute;top:24%;left:0" aria-hidden="true"></i>
+  <i data-tp data-x=".025" style="position:absolute;bottom:40px;left:0" aria-hidden="true"></i>
   <div class="wrap">
     <div class="grid">
       <div class="fh"><span class="label">Dúvidas frequentes</span><h2 class="h2"><span class="ln"><span>Antes de</span></span><span class="ln"><span>você <em>chegar</em></span></span></h2><p class="rv">Ficou alguma pergunta? Me chama, eu respondo com todo o prazer.</p></div>
@@ -865,9 +872,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
   /* ---------- fio do cuidado ---------- */
   const svg = $('#thread'), pMain = $('#tMain'), pHeart = $('#tHeart'), gMain = $('#tGhost'), gHeart = $('#tGhostH');
-  let len = 0, hLen = 0, maxY = [], step = 6, heartTop = 0, heartSpan = 1, drawn = 0, target = 0, enabled = reduce, heartDrawn = 0;
+  let len = 0, hLen = 0, maxY = [], step = 20, heartTop = 0, heartSpan = 1, drawn = 0, target = 0, enabled = reduce, heartDrawn = 0;
   const dots = $$('.ch .dot'), chs = $$('.ch'), stepIcons = $$('.step .ic'), lens = [];
-  let showAll = reduce;
+  let showAll = reduce, lastMo = '', lastHo = '';
   const pageRect = el => { const r = el.getBoundingClientRect(); return { x: r.left + scrollX, y: r.top + scrollY, w: r.width, h: r.height, cx: r.left + scrollX + r.width / 2, cy: r.top + scrollY + r.height / 2 }; };
 
   function build() {
@@ -911,7 +918,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       if (el.dataset.tp === 'row' && m) { i++; continue; }
       if (el.dataset.only && el.dataset.only !== (m ? 'm' : 'd')) { i++; continue; }
       const p = pageRect(el);
-      curveTo(m ? (el.dataset.mx === 'r' ? W - lineX : lineX) : W * parseFloat(el.dataset.x), p.y);
+      const dx = el.dataset.x === 'tl' ? pageRect($('[data-tp-bounds="tl"]')).x - 10 : W * parseFloat(el.dataset.x);
+      curveTo(m ? (el.dataset.mx === 'r' ? W - lineX : lineX) : dx, p.y);
       i++;
     }
 
@@ -953,10 +961,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     target = showAll ? 1e9 : (atEnd ? 1e9 : scrollY + innerHeight * .7);
     const want = enabled ? lengthAt(target) : 0;
     drawn = (reduce || force === 'snap') ? want : drawn + (want - drawn) * .14;
-    pMain.style.strokeDashoffset = (len - drawn).toFixed(1);
+    const mo = (len - drawn).toFixed(1); if (mo !== lastMo) { pMain.style.strokeDashoffset = mo; lastMo = mo; }
     const hp = enabled && drawn >= len - 2 ? Math.min(1, Math.max(0, (target - heartTop) / heartSpan)) : 0;
     heartDrawn = reduce ? 1 : force === 'snap' ? hp : heartDrawn + (hp - heartDrawn) * .1;
-    pHeart.style.strokeDashoffset = (hLen * (1 - heartDrawn)).toFixed(1);
+    const ho = (hLen * (1 - heartDrawn)).toFixed(1); if (ho !== lastHo) { pHeart.style.strokeDashoffset = ho; lastHo = ho; }
     const reached = k => showAll || (enabled && drawn >= lens[k] - 4);
     dots.forEach((dt, k) => { const on = reached(k); dt.classList.toggle('on', on); chs[k].classList.toggle('on', on); });
     stepIcons.forEach((ic, k) => ic.parentElement.classList.toggle('on', reached(dots.length + k)));
