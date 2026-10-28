@@ -405,6 +405,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .wide{margin-top:56px;height:420px;border-radius:22px}
   .wide .cap{left:22px;bottom:22px;font-size:10px}
   .wide .cap2{left:22px;right:auto;bottom:42px;font-size:20px}
+  .wide::before{content:"";position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(180deg,rgba(60,24,36,0),rgba(60,24,36,.6));z-index:1;pointer-events:none}
   .band span{font-size:58px}
 
   .story .grid{row-gap:0}
@@ -414,8 +415,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .story .pin-in{order:2}
   .story .pin-in{position:relative;top:0}
   .story .pin-in::before{left:-14%;top:-50px;width:110%;height:520px}
-  .story .portrait{width:78%;margin-top:34px}
-  .story .portrait-cap{width:78%}
+  .story .portrait{width:100%;margin-top:40px}
+  .story .portrait-cap{width:100%}
   .chapters{padding-top:100px}
   .ch,.ch:nth-child(even){min-height:0;padding:0 0 50px 0}
   .ch .dot,.ch:nth-child(even) .dot{left:-22px;right:auto;top:10px}
@@ -438,7 +439,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .sec-head{flex-direction:column;align-items:flex-start;gap:22px;margin-bottom:46px}
   .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--g);gap:16px;margin:0 calc(-1*var(--g));padding:0 var(--g) 8px;scrollbar-width:none}
   .cards::-webkit-scrollbar{display:none}
-  .card{flex:0 0 70%;scroll-snap-align:start}
+  .card{flex:0 0 70%;scroll-snap-align:start;scroll-snap-stop:always}
   .card .im{aspect-ratio:1/1.08}
   .card:hover{transform:none}
 
