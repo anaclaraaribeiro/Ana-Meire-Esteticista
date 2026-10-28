@@ -405,7 +405,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .wide{margin-top:56px;height:420px;border-radius:22px}
   .wide .cap{left:22px;bottom:22px;font-size:10px}
   .wide .cap2{left:22px;right:auto;bottom:42px;font-size:20px}
-  .wide::before{content:"";position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(180deg,rgba(60,24,36,0),rgba(60,24,36,.6));z-index:1;pointer-events:none}
+  .wide::before{inset:0;height:auto;background:linear-gradient(180deg,rgba(60,24,36,0) 45%,rgba(60,24,36,.6));mix-blend-mode:normal}
   .band span{font-size:58px}
 
   .story .grid{row-gap:0}
