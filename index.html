@@ -204,7 +204,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ch:nth-child(even) p{margin-left:auto}
 .ch .ct{opacity:.18;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .ch.on .ct{opacity:1;transform:none}
-.ch.final{padding-bottom:20px}
+.ch.final{padding-bottom:100px}
 .ch.final .script{font-size:clamp(60px,6vw,100px);display:block;margin:-6px 0 14px;white-space:nowrap}
 .ch.final p.big{font-family:var(--f-head);font-weight:300;font-size:clamp(26px,2.3vw,34px);line-height:1.25;color:var(--vinho);max-width:460px}
 .ch.final .thanks{font-size:13.5px;margin-top:22px;color:var(--tinta)}
@@ -913,6 +913,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     letterSpacing(wh, m ? .04 : .12); letterSpacing(wf, m ? .04 : .12);
     fitWM(wh, wh.parentElement.clientWidth);
     fitWM(wf, wf.clientWidth);
+    // foto do Sobre presa no centro da tela (abaixo do menu): solta junto com o último capítulo, que fica ao lado dela
+    const pi = $('.story .pin-in'); pi.style.top = m ? '' : Math.max(80, (innerHeight + 64 - pi.offsetHeight) / 2) + 'px';
     // a flor do rodapé cresce com o nome: o respiro acima dela acompanha, senão a pétala é cortada em telas largas
     const ft = $('.foot'); ft.style.paddingTop = '';
     const gap = $('.flower', wf).getBoundingClientRect().top - ft.getBoundingClientRect().top;
@@ -988,7 +990,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     heartTop = C; heartSpan = hh * .45;
     // chave monotônica (y acumulado, com rampa mínima nos trechos horizontais) para mapear rolagem em comprimento
     maxY = []; const pts = []; let key = -1e9;
-    for (let s = 0; s <= len; s += step) { const pt = pMain.getPointAtLength(s); pts.push(pt); key = Math.max(pt.y, key + step * .35); maxY.push(key); }
+    for (let s = 0; s <= len; s += step) { const pt = pMain.getPointAtLength(s); pts.push(pt); key = Math.max(pt.y, key + step * .05); maxY.push(key); }
     // comprimento do fio em cada ponto marcado (bolinhas da história, ícones das etapas)
     lens.length = 0;
     [...dots, ...stepIcons].forEach(el => {
