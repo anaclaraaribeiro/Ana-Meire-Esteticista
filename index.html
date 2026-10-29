@@ -996,9 +996,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     len = pMain.getTotalLength(); hLen = pHeart.getTotalLength();
     pMain.style.strokeDasharray = len; pHeart.style.strokeDasharray = hLen;
     heartTop = C; heartSpan = hh * .45;
-    // chave monotônica (y acumulado, com rampa mínima nos trechos horizontais) para mapear rolagem em comprimento
+    // chave monotônica (y acumulado, com rampa nos trechos horizontais) para mapear rolagem em comprimento.
+    // no desktop a linha das etapas é horizontal: rampa maior ali para ela atravessar os ícones mais devagar
+    const sb = m ? null : pageRect($('[data-tp-bounds="steps"]'));
     maxY = []; const pts = []; let key = -1e9;
-    for (let s = 0; s <= len; s += step) { const pt = pMain.getPointAtLength(s); pts.push(pt); key = Math.max(pt.y, key + step * .05); maxY.push(key); }
+    for (let s = 0; s <= len; s += step) { const pt = pMain.getPointAtLength(s); pts.push(pt); const ramp = sb && pt.y > sb.y - 80 && pt.y < sb.y + sb.h + 80 ? .4 : .05; key = Math.max(pt.y, key + step * ramp); maxY.push(key); }
     // comprimento do fio em cada ponto marcado (bolinhas da história, ícones das etapas)
     lens.length = 0;
     [...dots, ...stepIcons].forEach(el => {
